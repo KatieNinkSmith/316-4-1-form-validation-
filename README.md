@@ -15,22 +15,22 @@ Part 3: Registration Form Validation Requirements
 For the Registration Form section of the page, implement the following validation requirements:
 **_Registration Form - Username Validation:_**
 x--The username cannot be blank.
---The username must be at least four characters long.
+x--The username must be at least four characters long.
 --The username must contain at least two unique characters.
 --The username cannot contain any special characters or whitespace.
 **_Registration Form - Email Validation:_**
---The email must be a valid email address.
---The email must not be from the domain "example.com."
+x--The email must be a valid email address.
+x--The email must not be from the domain "example.com."
 **_Registration Form - Password Validation:_**
---Passwords must be at least 12 characters long.
+x--Passwords must be at least 12 characters long.
 --Passwords must have at least one uppercase and one lowercase letter.
 --Passwords must contain at least one number.
 --Passwords must contain at least one special character.
 --Passwords cannot contain the word "password" (uppercase, lowercase, or mixed).
---Passwords cannot contain the username.
---Both passwords must match.
+x--Passwords cannot contain the username.
+x--Both passwords must match.
 **_Registration Form - Terms and Conditions:_**
-**_The terms and conditions must be accepted._**
+x--The terms and conditions must be accepted.
 Registration Form - Form Submission:
 Usually, we would send this information to an external API for processing. In our case, we are going to process and store the data locally for practice purposes.
 **_If all validation is successful, store the username, email, and password using localStorage._**
@@ -38,7 +38,7 @@ If you are unfamiliar with localStorage, that is okay! Reference the documentat
 Consider how you want to store the user data, keeping in mind that there will be quite a few users registering for the site. Perhaps you want to store it with an array of user objects; or maybe an object whose keys are the usernames themselves.
 --Valid usernames should be converted to all lowercase before being stored.
 --Valid emails should be converted to all lowercase before being stored.
---Clear all form fields after successful submission and show a success message.
+x--Clear all form fields after successful submission and show a success message.
 Registration Form - Username Validation (Part Two):
 Now that we are storing usernames, create an additional validation rule for them...
 **_Usernames must be unique ("that username is already taken" error). Remember that usernames are being stored all lowercase, so "learner" and "Learner" are not unique._**
@@ -46,14 +46,14 @@ Now that we are storing usernames, create an additional validation rule for them
 Part 4: Login Form Validation Requirements
 For the Login Form section of the page, implement the following validation requirements:
 **_Login Form - Username Validation:_**
---The username cannot be blank.
+x--The username cannot be blank.
 --The username must exist (within localStorage). Remember that usernames are stored in all lowercase, but the username field accepts (and should not invalidate) mixed-case input.**_
 --Login Form - Password Validation:_**
---The password cannot be blank.**_
+x--The password cannot be blank.**_
 --The password must be correct (validate against localStorage)._**
 **_Login Form - Form Submission:_**
-**_If all validation is successful, clear all form fields and show a success message._**
-**_If "Keep me logged in" is checked, modify the success message to indicate this (normally, this would be handled by a variety of persistent login tools and technologies)._**
+x--If all validation is successful, clear all form fields and show a success message.
+--If "Keep me logged in" is checked, modify the success message to indicate this (normally, this would be handled by a variety of persistent login tools and technologies).
 
 Part 5: Completion
 Test your validation thoroughly! Try to break things!

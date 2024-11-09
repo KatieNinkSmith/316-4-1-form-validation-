@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Form Validation Practice</title>
-    <link rel="stylesheet" href="./scripts/script.js" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <!-- Font Awesome for Icons -->
     <script type="text/javascript" src="./scripts/script.js"></script>
   </head>
@@ -17,10 +17,11 @@
         <!-- Registration Form -->
         <form id="registration">
           <input
-            class="regUser"
+            class="regUser userName"
             name="username"
             type="text"
             placeholder="Username"
+            minlength="4"
             required
           />
           <span class="input-icon"><i class="fa-solid fa-user"></i></span><br />
@@ -38,8 +39,9 @@
           <input
             class="regPassword"
             name="password"
-            type="text"
+            type="password"
             placeholder="Password"
+            minlength="12"
             required
           />
           <span class="input-icon"><i class="fa-solid fa-key"></i></span><br />
@@ -47,8 +49,9 @@
           <input
             class="regPasswordCheck"
             name="passwordCheck"
-            type="text"
+            type="password"
             placeholder="Repeat Password"
+            minlength="12"
             required
           />
           <span class="input-icon"><i class="fa-solid fa-key"></i></span
@@ -59,7 +62,12 @@
             <label for="terms"
               >I agree to the&nbsp;<a href="#">Terms of Use</a>.</label
             >
-            <input class="regBtn" type="submit" value="Register" />
+            <input
+              class="regBtn"
+              name="registrationButton"
+              type="submit"
+              value="Register"
+            />
           </div>
         </form>
       </div>
@@ -72,7 +80,7 @@
         <!-- Login Form -->
         <form id="login" style="border-bottom: 1px solid lightgray">
           <input
-            class="loginUser"
+            class="loginUser userName"
             name="username"
             type="text"
             placeholder="Username"
@@ -83,8 +91,9 @@
           <input
             class="loginPassword"
             name="password"
-            type="text"
+            type="password"
             placeholder="Password"
+            minlength="12"
             required
           />
           <span class="input-icon"><i class="fa-solid fa-key"></i></span
@@ -93,7 +102,7 @@
           <div class="flex-row">
             <input name="persist" type="checkbox" />
             <label for="persist">Keep me logged in.</label>
-            <input class="loginBtn" type="submit" value="Login" />
+            <input id="loginBtn" type="submit" value="Login" />
           </div>
           <br /><br />
         </form>

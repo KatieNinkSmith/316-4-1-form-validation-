@@ -1,8 +1,8 @@
-console.log("i am linked");
-const registration = document.getElementById("registration");
+console.log('i am linked');
+const registration = document.getElementsByClassName('regBtn');
 console.log(registration);
-// const regUser = document.querySelector(".regUser");
-// console.log(regUser);
+const userName = document.getElementsByClassName('userName');
+console.log(userName);
 // const regEmail = document.querySelector(".regEmail");
 // console.log(regEmail);
 // const regPassword = document.querySelector(".regPassword");
@@ -20,27 +20,23 @@ console.log(registration);
 // const loginBtn = document.querySelector(".login");
 // console.log(loginBtn);
 
-registration.addEventListener("submit", validate);
+registration.addEventListener('submit', validateRegistration);
 
 function validateRegistration(evt) {
   evt.preventDefault();
-  const nameVal = validateName();
-  if (nameVal === false) {
-    evt.returnValue = false;
-    return false;
-  }
-  if (nameVal < 4) {
+  const userNameVal = validateUserName();
+  if (userNameVal === false) {
     evt.returnValue = false;
     return false;
   }
 
   const emailVal = validateEmail();
-  const atpos = emailVal.indexOf("@");
-  const dotpos = emailVal.lastIndexOf(".");
+  const atpos = emailVal.indexOf('@');
+  const dotpos = emailVal.lastIndexOf('.');
 
   if (atpos < 1) {
     alert(
-      "Your email must include an @ symbol, which must not be at the beginning"
+      'Your email must include an @ symbol, which must not be at the beginning'
     );
     email.focus();
     return false;
@@ -48,7 +44,7 @@ function validateRegistration(evt) {
 
   if (dotpos - atpos < 2) {
     alert(
-      "Invalid structure: @.\nYou must include a domain name after the @ symbol."
+      'Invalid structure: @.\nYou must include a domain name after the @ symbol.'
     );
     email.focus();
     return false;
@@ -58,11 +54,32 @@ function validateRegistration(evt) {
     evt.returnValue = false;
     return false;
   }
+  if (emailVal !== 'example.com') {
+    evt.returnValue = false;
+    return false;
+  }
 
   const passwordVal = validatePassword();
   if (passwordVal === false) {
     evt.returnValue = false;
     return false;
+  }
+  if (passwordVal !== nameVal) {
+    evt.returnValue = false;
+    return false;
+  }
+  if (passwordVal === passwordVal2) {
+    evt.returnValue = true;
+    return true;
+  }
+  const passwordVal2 = validatePassword();
+  if (passwordVal2 === false) {
+    evt.returnValue = false;
+    return false;
+  }
+  if (passwordVal2 === passwordVal) {
+    evt.returnValue = true;
+    return true;
   }
 
   alert(`Name: ${nameVal}
@@ -72,7 +89,19 @@ function validateRegistration(evt) {
   return true;
 }
 
-login.addEventListener("submit", validate);
+function validateUserName() {
+  let nameVal = userName.value;
+
+  if (nameVal.length === 0) {
+    alert('Your name cannot be empty');
+    userName.focus();
+    return false;
+  }
+
+  return nameVal;
+}
+
+login.addEventListener('submit', validate);
 
 function validatelogin(evt) {
   evt.preventDefault();
@@ -85,10 +114,25 @@ function validatelogin(evt) {
   let passwordVal = password.value;
 
   if (passwordVal.length === 0) {
-    alert("Your password cannot be empty");
+    alert('Your password cannot be empty');
     password.focus();
     return false;
   }
 
   return passwordVal;
+}
+
+function findUnique(str) {
+  // The variable that contains the unique values
+  let uniq = '';
+
+  for (let i = 0; i < str.length; i++) {
+    // Checking if the uniq contains the character
+    if (uniq.includes(str[i]) === false) {
+      // If the character not present in uniq
+      // Concatenate the character with uniq
+      uniq += str[i];
+    }
+  }
+  return uniq;
 }
