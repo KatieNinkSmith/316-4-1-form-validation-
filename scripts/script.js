@@ -1,24 +1,23 @@
 console.log('i am linked');
-const registration = document.getElementsByClassName('regBtn');
-console.log(registration);
-const userName = document.getElementsByClassName('userName');
-console.log(userName);
-// const regEmail = document.querySelector(".regEmail");
-// console.log(regEmail);
-// const regPassword = document.querySelector(".regPassword");
-// console.log(regPassword);
-// const regPasswordCheck = document.querySelector(".regPasswordCheck");
-// console.log(regPasswordCheck);
-// const regBtn = document.querySelector(".register");
-// console.log(regBtn);
+const form = document.getElementsByClassName('form');
+console.log(form);
+const registration = form[0];
+console.log(registration.target.value);
+const login = from[1];
+console.log(login.target.value);
 
-// const login = document.getElementById("login");
-// const loginUser = document.querySelector(".loginUser");
-// console.log(loginUser);
-// const loginPassword = document.querySelector(".loginPassword");
-// console.log(loginPassword);
-// const loginBtn = document.querySelector(".login");
-// console.log(loginBtn);
+const uName = form.elements['username'];
+console.log(uName);
+// const email = form.elements['email'];
+// console.log(email);
+// const password = form.elements['password'];
+// console.log(password);
+// const passwordCheck = form.elements['passwordCheck'];
+// console.log(passwordCheck);
+// const registration = form.elements('regBtn');
+// console.log(registration);
+const userNames = document.getElementsByClassName('userName');
+console.log(userNames);
 
 registration.addEventListener('submit', validateRegistration);
 
@@ -89,12 +88,26 @@ function validateRegistration(evt) {
   return true;
 }
 
-function validateUserName() {
-  let nameVal = userName.value;
+function validateUserNames() {
+  let namesVal = userNames.value;
 
-  if (nameVal.length === 0) {
+  if (namesVal.length === 0) {
     alert('Your name cannot be empty');
     userName.focus();
+    return false;
+  }
+  const capPos = namesVal.indexOf('(?=.*[A-Z])');
+
+  if (capPos < 1) {
+    alert('Your username must include an uppercase letter');
+    username.focus();
+    return false;
+  }
+  const lowerPos = namesVal.indexOf('(?=.*[a-z])');
+
+  if (lowerPos < 1) {
+    alert('Your username must include a lowercase letter');
+    username.focus();
     return false;
   }
 

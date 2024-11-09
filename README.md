@@ -9,7 +9,7 @@ You can place any text or HTML into errorDisplay.
 
 Part 2: General Requirements
 To reiterate, these requirements can be completed using any combination of HTML validation attributes and JavaScript event listeners that you want. Consider the right tool for each job before you begin working on it.
-General Requirements: Whenever any of these validation requirements fail, an appropriate error should be communicated to the user (in most cases, the actual requirement listed below serves as a good error message), and focus should return to the input element that the error originates from. If any requirements fail, the form should not submit. **toggle**
+General Requirements: Whenever any of these validation requirements fail, an appropriate error should be communicated to the user (in most cases, the actual requirement listed below serves as a good error message), and focus should return to the input element that the error originates from. If any requirements fail, the form should not submit.
 
 Part 3: Registration Form Validation Requirements
 For the Registration Form section of the page, implement the following validation requirements:
